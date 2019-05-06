@@ -25,3 +25,8 @@ def update_transacao(request, pk):
         form.save()
         return redirect('url_home')
     return render(request, 'contas/nova_transacao.html', {'form': form})
+
+def delete_transacao(request, pk):
+    transacao = Transacao.objects.get(pk=pk)
+    transacao.delete()
+    return redirect('url_home')
