@@ -16,3 +16,12 @@ def nova_transacao(request):
         form.save()
         return redirect('url_home')
     return render(request, 'contas/nova_transacao.html', {'form': form})
+
+def update_transacao(request, pk):
+    transacao = Transacao.objects.get(pk=pk)
+    form = TransacaoForm(request.POST or None, instance=transacao)
+
+    if form.is_valid():
+        form.save()
+        return redirect('url_home')
+    return render(request, 'contas/nova_transacao.html', {'form': form})

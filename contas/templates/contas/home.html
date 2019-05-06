@@ -9,7 +9,8 @@
   <ul>
   {% for transacao in transacoes %}
     <li>
-      {{ transacao.descricao }} - {{ transacao.data }} - {{ transacao.valor }}
+      {{ transacao.descricao }} - {{ transacao.data }} - {{ transacao.valor }} 
+      [<a href="{% url 'url_update' transacao.id %}">Editar</a>]
     </li>
   {% endfor %}
   </ul>
